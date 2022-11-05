@@ -9,6 +9,10 @@ export default function App() {
      <div className="container">
     
       <Weather />
+      <footer>
+        This is an open-sourced project coded by Olena Korol - 
+        <a href="https://github.com/Okirey/weather-app-react">GitHub</a>
+      </footer>
         </div>
     </div>
   );
