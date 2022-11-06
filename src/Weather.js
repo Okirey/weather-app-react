@@ -1,26 +1,27 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./Weather.css";
+import FormattedDate from "./FormattedDate";
 
 import ReactAnimatedWeather from "react-animated-weather";
 
-export default function Weather(props){
+export default function Weather(){
 
 const [weatherData, setWeatherData] = useState({ready:false});
     function handleResponse(response){
-    console.log(response.data.time);
+    console.log(new Date(response.data.time * 1000));
     setWeatherData(
         {   ready: true,
-            temperature:response.data.temperature.current,
+            temperature: response.data.temperature.current,
+            date: new Date(response.data.time * 1000),
             city: response.data.city,             
             wind: Math.round(response.data.wind.speed),
             humidity: response.data.temperature.humidity,
             description: response.data.condition.description,
-          
+            
         }
     )
- 
-}
+ }
 if(weatherData.ready){
  return (
  <div className="Weather">
@@ -37,7 +38,7 @@ if(weatherData.ready){
     <h1>{weatherData.city}</h1>
     <ul>
         <li>
-         {weatherData.date}
+       <FormattedDate date={weatherData.date}/>
             </li>
         <li className ="text-capitalize">{weatherData.description}</li>
     </ul>
@@ -65,7 +66,7 @@ if(weatherData.ready){
 } else{
     const apiKey = `fbfc1ff848ef3c808f7at85bodf0ef27`;
     let city = `malaga`;
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apiKey}&units=metric`;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
     return "Loading";
 }   
