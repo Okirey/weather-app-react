@@ -1,21 +1,22 @@
 import React, {useState} from "react";
 import axios from "axios";
 import "./Weather.css";
+
 import ReactAnimatedWeather from "react-animated-weather";
 
 export default function Weather(props){
 
 const [weatherData, setWeatherData] = useState({ready:false});
     function handleResponse(response){
-    console.log(response.data);
+    console.log(response.data.time);
     setWeatherData(
-        {   ready:true,
+        {   ready: true,
             temperature:response.data.temperature.current,
             city: response.data.city,             
             wind: Math.round(response.data.wind.speed),
             humidity: response.data.temperature.humidity,
             description: response.data.condition.description,
-            dayAndTime: "Saturday 15:30"
+          
         }
     )
  
@@ -35,7 +36,9 @@ if(weatherData.ready){
     </form>
     <h1>{weatherData.city}</h1>
     <ul>
-        <li>{weatherData.dayAndTime}</li>
+        <li>
+         {weatherData.date}
+            </li>
         <li className ="text-capitalize">{weatherData.description}</li>
     </ul>
     <div className="row mt-1">
