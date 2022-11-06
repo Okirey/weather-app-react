@@ -8,7 +8,7 @@ export default function App() {
     <div className="App">
      <div className="container">
     
-      <Weather />
+      <Weather defaultCity ="Malaga"/>
       <footer>
         This is an open-sourced project coded by Olena Korol - 
         <a href="https://github.com/Okirey/weather-app-react"> GitHub</a>
