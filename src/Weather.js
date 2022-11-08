@@ -17,6 +17,7 @@ const [weatherData, setWeatherData] = useState({ready: false});
             city: response.data.city,             
             wind: Math.round(response.data.wind.speed),
             humidity: response.data.temperature.humidity,
+            icon: response.data.condition.icon,
             description: response.data.condition.description,
                     }
     )
@@ -45,7 +46,7 @@ if(weatherData.ready){
         <input type="serch" placeholder="enter a city" className="form-control" autoFocus="on" onChange={handleCityChange}/>
         </div>
         <div className="col-3">
-        <input type="submit" value="Search" className="btn btn-secondary w-100"/>
+        <input type="submit" value="Search" className="btn btn-light w-100"/>
         </div>
         </div>
     </form>
