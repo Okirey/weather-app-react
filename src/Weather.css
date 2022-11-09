@@ -38,3 +38,6 @@ margin: 20px 0 0 0;
 .Weather canvas{
     margin-top: 5px;
 }
+a {
+    text-decoration: none;
+}
