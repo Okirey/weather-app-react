@@ -33,8 +33,7 @@ function handleSubmit(event){
     search();
 }
 function handleCityChange(event){
-  
-setCity(event.target.value);
+  setCity(event.target.value);
 }
 
 if(weatherData.ready){
