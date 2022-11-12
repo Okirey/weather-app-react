@@ -1,0 +1,7 @@
+.WeatherForecast{
+ color: azure;
+ text-align: center;
+}
+.WeatherForecast-temperature-max{
+    font-weight: bold;
+}
